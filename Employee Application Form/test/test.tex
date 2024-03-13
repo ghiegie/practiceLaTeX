@@ -1,25 +1,38 @@
-\documentclass[a4paper,11pt]{report}
-\usepackage[pdfborder={0 0 0}, colorlinks={false}, linkcolor={black}, urlcolor={blue}]{hyperref}
+\documentclass[hidelinks,a4paper,12pt,oneside]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{array}
+    \newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+    \newcolumntype{M}[1]{>{\centering\arraybackslash}m{#1}}
 
-\begin{document}
+\usepackage{caption}
+    
+\title{table}
+\begin{document} 
+\maketitle
 
-  \begin{table}[htbp]
+
+
+\begin{table}[ht]
+\renewcommand{\arraystretch}{2}
+\footnotesize
     \centering
-    \begin{tabular}{ p{0.30\linewidth}  p{0.15\linewidth} p{0.30\linewidth}}
-      \begin{center}\textbf{Me}\end{center} & & \begin{center}\textbf{Them}\end{center} \\
-        &  &  \\
-        &  &  \\ 
-      \cline{1-1}\cline{3-3}
-      \footnotesize{\textbf{Sign.}} &  & \footnotesize{\textbf{Sign.}}\\
-        &  & \\ 
-      \TextField[bordercolor=, name=signMe]{asd}  &  & \TextField[bordercolor=,name=signThem]{fgh}  \\
-        &  &\\[-11pt] % <--- Here's the attempted fix inserted
-      \cline{1-1}\cline{3-3} 
-      \footnotesize{\textbf{Printed name}}&  & \footnotesize{\textbf{Printed name}} \\
-        &  & \\
-        &  &  \\ \cline{1-1}\cline{3-3}
-      \footnotesize{\textbf{Place and date}} &  & \footnotesize{\textbf{Place and date}}\\
-    \end{tabular}
-  \end{table}
+    \begin{tabular}{|P{0.75cm}|P{1.25cm}|P{0.75cm}|P{0.75cm}|P{0.75cm}|P{0.75cm}|P{0.75cm}|P{1cm}|P{1cm}|P{1cm}|P{1cm}|P{0.75cm}|}
+    \hline
+         \multirow{2}{0.75cm}{\centering Test\\ No} & \multirow{2}{*}{Name} & \multicolumn{3}{c|}{Domain} & \multirow{2}{0.75cm}{\centering Cell\\ Size} & \multicolumn{4}{c|}{MLR} & \multirow{2}{*}{$C_1$} & \multirow{2}{*}{$C_2$}\\
+         \cline{3-5}\cline{7-10}
+          & & x & y & z & & $\dot{m_t}$ & $\dot{m}_{in}$ & $\dot{m}_{out}$ & $\dot{m}_{avg}$ & & \\
+         \hline
+         1 & Mass1 & 0.1 & 0.1 & 0.1 & 0.1 & 0.1 & 0.1 & 0.1 & 0.1 & 0.1 & 0.1 \\
+         \hline
+         2 & Mass2 & 0.1 & 0.1 & 0.1 & 0.1 & 0.1 & \multicolumn{2}{c|}{0.1}  & 0.1 & 0.1 & 0.1 \\
+         \hline
+         \end{tabular}
+%         \vspace{0.5cm}
+    \caption{Tests}
+\end{table}
+
 
 \end{document}

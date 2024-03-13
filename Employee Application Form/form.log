@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.17.0 (TeX Live 2023)  (format=lualatex 2024.3.11)  13 MAR 2024 17:33
+This is LuaHBTeX, Version 1.17.0 (TeX Live 2023)  (format=lualatex 2024.3.4)  13 MAR 2024 21:10
  restricted system commands enabled.
 **form.tex
 (./form.tex
@@ -462,10 +462,6 @@ Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
 (c:/texlive/2023/texmf-dist/tex/latex/fontspec/fontspec.cfg)))
 luaotfload | cache : Lookup cache loaded from C:/texlive/2023/texmf-var/luatex-c
 ache/generic/names/luaotfload-lookup-cache.luc.
-luaotfload | aux : font no 26 (nil) does not define feature smcp for script latn
- with language dflt
-luaotfload | aux : font no 27 (nil) does not define feature smcp for script latn
- with language dflt
 
 Package fontspec Info: Font family 'Arial(0)' created for font 'Arial' with
 (fontspec)             options [Ligatures=TeX].
@@ -488,11 +484,15 @@ ig;+smcp;"
 (fontspec)             - 'italic' (m/it) with NFSS spec.:
 (fontspec)             <->"name:Arial/I:mode=node;script=latn;language=dflt;+tl
 ig;"
-(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.: 
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.:
+(fontspec)             <->"name:Arial/I:mode=node;script=latn;language=dflt;+tl
+ig;+smcp;"
 (fontspec)             - 'bold italic' (b/it) with NFSS spec.:
 (fontspec)             <->"name:Arial/BI:mode=node;script=latn;language=dflt;+t
 lig;"
-(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.: 
+(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.:
+(fontspec)             <->"name:Arial/BI:mode=node;script=latn;language=dflt;+t
+lig;+smcp;"
 
  (./form.aux)
 \openout1 = form.aux
@@ -725,19 +725,19 @@ Package rerunfilecheck Info: File `form.out' has not changed.
 )
 
 Here is how much of LuaTeX's memory you used:
- 16240 strings out of 476447
+ 16245 strings out of 476447
  125024,1977958 words of node,token memory allocated
  452 words of node memory still in use:
    4 hlist, 1 vlist, 2 rule, 2 glue, 3 kern, 1 glyph, 6 attribute, 52 glue_spec,
  6 attribute_list, 1 write nodes
    avail lists: 2:1816,3:694,4:20,5:97,6:227,7:8446,8:1,9:2275,10:14,11:587
- 38035 multiletter control sequences out of 65536+600000
- 42 fonts using 8825743 bytes
+ 38040 multiletter control sequences out of 65536+600000
+ 42 fonts using 10594703 bytes
  79i,18n,89p,275b,778s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/Windows/Fonts/arial.ttf><c:/texlive/2023/texmf-dist/fonts/opentype/public/lm
 /lmsans10-regular.otf><c:/texlive/2023/texmf-dist/fonts/type1/urw/zapfding/uzdr.
 pfb>
-Output written on form.pdf (3 pages, 92031 bytes).
+Output written on form.pdf (3 pages, 92158 bytes).
 
 PDF statistics: 614 PDF objects out of 1000 (max. 8388607)
  129 compressed objects within 2 object streams
