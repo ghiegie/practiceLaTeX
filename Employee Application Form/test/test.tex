@@ -1,0 +1,25 @@
+\documentclass[a4paper,11pt]{report}
+\usepackage[pdfborder={0 0 0}, colorlinks={false}, linkcolor={black}, urlcolor={blue}]{hyperref}
+
+\begin{document}
+
+  \begin{table}[htbp]
+    \centering
+    \begin{tabular}{ p{0.30\linewidth}  p{0.15\linewidth} p{0.30\linewidth}}
+      \begin{center}\textbf{Me}\end{center} & & \begin{center}\textbf{Them}\end{center} \\
+        &  &  \\
+        &  &  \\ 
+      \cline{1-1}\cline{3-3}
+      \footnotesize{\textbf{Sign.}} &  & \footnotesize{\textbf{Sign.}}\\
+        &  & \\ 
+      \TextField[bordercolor=, name=signMe]{asd}  &  & \TextField[bordercolor=,name=signThem]{fgh}  \\
+        &  &\\[-11pt] % <--- Here's the attempted fix inserted
+      \cline{1-1}\cline{3-3} 
+      \footnotesize{\textbf{Printed name}}&  & \footnotesize{\textbf{Printed name}} \\
+        &  & \\
+        &  &  \\ \cline{1-1}\cline{3-3}
+      \footnotesize{\textbf{Place and date}} &  & \footnotesize{\textbf{Place and date}}\\
+    \end{tabular}
+  \end{table}
+
+\end{document}

@@ -1,0 +1,300 @@
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{caption}
+\usepackage[margin = 1cm]{geometry}
+\usepackage{subcaption,lipsum, hyperref, eforms}
+\usepackage{array, tabularx, tabu}
+\usepackage{fontspec}
+
+% \def\LayoutCheckField#1#2{% label, field
+%   #2 #1%
+% }
+
+\setmainfont{Arial}
+
+% \def\LayoutTextField#1#2{% label, field
+%   \def\Hy@temp{#1}%
+%   \ifx\Hy@temp\@empty
+%     #2%
+%   \else
+%     \raisebox{\dimexpr(\depth-\height)/2}{#1} \raisebox{\dimexpr(\depth-\height)/2}{#2}%
+%   \fi
+% }
+
+\begin{document}
+	\begin{Form}
+		% start of logo
+		\begin{figure}
+			\begin{center}
+				\includegraphics[width=0.45\linewidth]{company logo.png}\\
+				Application for Employment
+			\end{center}
+		\end{figure}
+		% end of logo
+
+		% start of nickname textbox
+		\begin{flushleft}
+			\TextField[name=Nickname,width=0.25\textwidth,value=test,readonly=true,height=10bp]{Nickname: }
+		\end{flushleft}
+		% end of nickname textbox
+
+		\vspace{0.5cm}
+
+		% start of instruction #1
+		\noindent
+		INSTRUCTIONS: All applicants must be made on this and every applicant is urged to consider 
+		carefully and understand fully each question to fill in accurately the blanks in his own 
+		handwriting ink. Any business, technical or educational information not called for in this
+		form should be submitted in an attached resume.\\\\
+		INSTRUCTIONS FOR DATE FORMAT: Date format must be yyyy-MM-dd (ex.: 2011-12-21)	
+		% end of instruction #1
+
+		% start of name
+		\begin{center}
+			\begin{tabularx}{\textwidth}{|XXX|}
+				\hline
+				\multicolumn{3}{|c|}{
+					NAME
+				}\\
+				\hline
+				Last Name & First Name & Middle Name\\
+				\TextField[name=Lastname,width=\linewidth,height=5bp]{} & \TextField[name=Firstname,width=\linewidth,height=5bp]{} & \TextField[name=Middlename,width=\linewidth,height=5bp]{}\\
+				\hline
+			\end{tabularx}
+		\end{center}
+		% end of name
+
+		% other personal details start
+		\begin{center}
+			\begin{tabularx}{\textwidth}{|lXlX|}
+				\hline
+				\multicolumn{4}{|c|}{
+					PERSONAL DETAILS
+				}\\
+				\hline
+				Phone Number: & \TextField[name=PhoneNo,width=\linewidth,height=5bp]{} & Date Available: & \TextField[name=DateAvail,width=\linewidth,height=5bp]{}\\
+				\multicolumn{4}{@{}c@{}}{
+					\begin{tabularx}{\textwidth}{|lX|}
+						Birthday: &\TextField[name=Bday,width=\linewidth,height=5bp]{}
+					\end{tabularx}
+				}\\
+				\hline
+			\end{tabularx}
+		\end{center}
+		% other personal details start end
+
+		% civil status start
+		\begin{center}
+			\begin{tabularx}{\textwidth}{|lXlX|}
+				\hline
+				\multicolumn{4}{|c|}{
+					CIVIL STATUS
+				}\\
+				\hline
+				Civil Status: & \comboBox{}{\linewidth}{11bp}{
+					[(1)(Single)]
+					[(2)(Married)]
+					[(2)(Separated/Annulled)]
+					[(2)(Widowed)]
+				} & If Married, how many children:& \TextField[name=ChildCount,width=\linewidth]{}\\
+				\multicolumn{4}{@{}X@{}}{
+					\begin{tabularx}{\textwidth}{|XXX|}
+						Name of Spouse&Occupation of Spouse&Office Address\\
+						\TextField[name=Spouse,width=\linewidth]{} & \TextField[name=SpouseOccup,width=\linewidth]{} & \TextField[name=SpouseOccupAddr,width=\linewidth]{}
+					\end{tabularx}
+				}\\
+				\hline
+			\end{tabularx}
+		\end{center}
+		% civil status end
+
+		% addr start
+		\begin{center}
+			\begin{tabularx}{\textwidth}{ |lX| }
+				\hline
+				\multicolumn{2}{|c|}{
+					ADDRESS
+				}\\
+				\hline
+				Present Address:&\TextField[name=PresAddr,width=\linewidth]{}\\
+				Permanent Address:&\TextField[name=PermAddr,width=\linewidth]{}\\
+				\hline
+			\end{tabularx}
+		\end{center}
+		% addr end
+
+		% health condition start
+		\begin{center}
+			\begin{tabularx}{\textwidth}{ | lX | }
+				\hline
+				\multicolumn{2}{|c|}{
+					HEALTH CONDITION/S
+				}\\
+				\hline
+				Physical Health Condition: &\TextField[name=HealthCondition,width=\linewidth]{}\\
+				Last Physical Exam: &\TextField[name=LastChkUp,width=\linewidth]{}\\
+				\hline
+			\end{tabularx}
+		\end{center}
+		% health condition end
+		
+		% job detail start
+		\begin{center}
+			\begin{tabularx}{\textwidth}{ | lX | }
+				\hline
+				\multicolumn{2}{|c|}{
+					JOB DETAILS
+				}\\
+				\hline
+				\multicolumn{2}{|l|}{
+					Prior Occupation Details
+				}\\
+				\hline
+				Reason for Leaving Last Employment: &\TextField[name=EmplTerminationReason,width=\linewidth]{}\\
+				\multicolumn{2}{@{}l@{}}{
+					\begin{tabularx}{\textwidth}{|lXlX|}
+						Base: &\TextField[name=Salary,width=\linewidth]{}&Allowance: &\TextField[name=Allowance,width=\linewidth]{}
+					\end{tabularx}
+				}\\
+				\hline
+				\multicolumn{2}{|l|}{
+					Job Application Details
+				}\\
+				\hline
+				\multicolumn{2}{@{}l@{}}{
+					\begin{tabularx}{\textwidth}{|lX|}
+						Position Desired: &\TextField[name=PosAppl,width=\linewidth]{}\\
+					\end{tabularx}
+				}\\
+				\multicolumn{2}{@{}l@{}}{
+					\begin{tabularx}{\textwidth}{|X|}
+						Were you employed by this Company? \ChoiceMenu[radio,name=IsPastEmplHere,width=15bp,height=10bp]{Yes}{=Yes}  \ChoiceMenu[radio,name=IsPastEmplHere,width=15bp,height=10bp]{No}{=No}\\
+					\end{tabularx}
+				}\\
+				\multicolumn{2}{@{}l@{}}{
+					\begin{tabularx}{\textwidth}{|lXlX|}
+						If yes, when did you Leave: &\TextField[name=WhenLeave,width=\linewidth]{}&, and why did you leave: &\TextField[name=WhyLeave,width=\linewidth]{}\\
+					\end{tabularx}
+				}\\
+				\hline
+				\multicolumn{2}{|l|}{
+					Job History
+				}\\
+				\multicolumn{2}{@{}l@{}}{
+					\begin{tabularx}{\textwidth}{ | X | X | X | }
+						\hline
+						\multicolumn{1}{|c|}{Employment History} & \multicolumn{1}{c|}{Position Held} & \multicolumn{1}{c|}{Inclusive Date of Employmentt}\\
+						\TextField[name=Empl1,width=\linewidth]{} & \TextField[name=Pos1,width=\linewidth]{} & \TextField[name=EmplDate1,width=\linewidth]{}\\
+						\TextField[name=Empl2,width=\linewidth]{} & \TextField[name=Pos2,width=\linewidth]{} & \TextField[name=EmplDate2,width=\linewidth]{}\\
+						\TextField[name=Empl3,width=\linewidth]{} & \TextField[name=Pos3,width=\linewidth]{} & \TextField[name=EmplDate3,width=\linewidth]{}\\
+						\TextField[name=Empl4,width=\linewidth]{} & \TextField[name=Pos4,width=\linewidth]{} & \TextField[name=EmplDate4,width=\linewidth]{}\\
+						\hline
+					\end{tabularx}
+				}\\
+				\hline
+			\end{tabularx}
+		\end{center}
+		% job detail end
+
+		% educ details
+		\begin{center}
+			\begin{tabularx}{\textwidth}{ | X  X  X  X | }
+				\hline
+				\multicolumn{4}{|c|}{EDUCATIONAL ATTAINMENT}\\
+				\hline
+				\multicolumn{1}{|X}{Name of High School, College or University} & \multicolumn{1}{c}{From} & \multicolumn{1}{c}{To} & \multicolumn{1}{c|}{Degree/Major}\\
+				\TextField[name=SchoolName1,width=\linewidth]{} & \TextField[name=StartDate1,width=\linewidth]{} & \TextField[name=EndDate1,width=\linewidth]{} & \TextField[name=Degree1,width=\linewidth]{}\\
+				\TextField[name=SchoolName2,width=\linewidth]{} & \TextField[name=StartDate2,width=\linewidth]{} & \TextField[name=EndDate2,width=\linewidth]{} & \TextField[name=Degree2,width=\linewidth]{}\\
+				\TextField[name=SchoolName3,width=\linewidth]{} & \TextField[name=StartDate3,width=\linewidth]{} & \TextField[name=EndDate3,width=\linewidth]{} & \TextField[name=Degree3,width=\linewidth]{}\\
+				\TextField[name=SchoolName4,width=\linewidth]{} & \TextField[name=StartDate4,width=\linewidth]{} & \TextField[name=EndDate4,width=\linewidth]{} & \TextField[name=Degree4,width=\linewidth]{}\\
+				\hline
+			\end{tabularx}
+		\end{center}
+		% educ details
+
+		%licenses start
+		\begin{center}
+			\begin{tabularx}{\textwidth}{ | X | X | X | }
+				\hline
+				\multicolumn{3}{|c|}{PROFESSIONAL LICENSES, COURSES, EXAMINATIONS}\\
+				\hline
+				\multicolumn{3}{|l|}{Licenses}\\
+				\hline
+				\multicolumn{1}{|X|}{Professional License Held} & \multicolumn{1}{c|}{License No} & \multicolumn{1}{c|}{Validity}\\
+				\TextField[name=LicName1,width=\linewidth]{} & \TextField[name=LicNo1,width=\linewidth]{} & \TextField[name=Valid1,width=\linewidth]{}\\
+				\TextField[name=LicName2,width=\linewidth]{} & \TextField[name=LicNo2,width=\linewidth]{} & \TextField[name=Valid2,width=\linewidth]{}\\
+				\TextField[name=LicName3,width=\linewidth]{} & \TextField[name=LicNo3,width=\linewidth]{} & \TextField[name=Valid3,width=\linewidth]{}\\
+				\hline
+				\multicolumn{3}{@{}l@{}}{
+					\begin{tabularx}{\textwidth}{ | l | X | }
+						Vocational Course: &\TextField[name=VocCourse,multiline,height=0.5in,width=\linewidth]{}\\
+						\hline
+						Government Exams Taken:  &\TextField[name=GovtExam,multiline,height=0.5in,width=\linewidth]{}\\
+						\hline
+					\end{tabularx}
+				}
+			\end{tabularx}
+		\end{center}
+
+		%language start
+		\begin{center}
+			\begin{tabularx}{\textwidth}{ | X | }
+				\hline
+				\multicolumn{1}{|c|}{LANGUAGE/S SPOKEN}\\
+				\TextField[name=LangSpoken,multiline,height=0.5in,width=\linewidth]{}{}\\
+				\hline
+			\end{tabularx}
+		\end{center}
+		%language end
+		
+		\begin{center}
+			\begin{tabularx}{\textwidth}{ | X | X | X | }
+				\hline
+				Dependent's Name & Relationship & Birthday\\
+				\hline
+				\TextField[name=Dep1]{} & \TextField[name=Rel1]{} & \TextField[name=Bday1]{}\\
+				\hline
+				\TextField[name=Dep2]{} & \TextField[name=Rel2]{} & \TextField[name=Bday2]{}\\
+				\hline
+				\TextField[name=Dep3]{} & \TextField[name=Rel3]{} & \TextField[name=Bday3]{}\\
+				\hline
+				\TextField[name=Dep4]{} & \TextField[name=Rel4]{} & \TextField[name=Bday4]{}\\
+				\hline
+			\end{tabularx}
+		\end{center}
+		\begin{center}
+			\begin{tabularx}{\textwidth}{ | X | X | }
+				\hline
+				\TextField[name=EmrgName]{Emergency Contact: } & \TextField[name=EmrgRel]{Relationship: }\\
+				\hline
+				\TextField[name=EmrgAddr]{Address: } & \TextField[name=EmrgConNo]{Contact No.: }\\
+				\hline
+			\end{tabularx}
+		\end{center}
+
+		\lipsum \\\\
+
+		\noindent
+		\TextField[name=DateAppl]{Date Applied: }\\
+
+		\begin{center}
+			\begin{tabularx}{\textwidth}{ | X | X | X | }
+				\hline
+				\TextField[name=SS_No]{SSS: } & \TextField[name=TIN]{TIN: } & \TextField[name=PAGIBIG]{PAGIBIG: }\\
+				\hline
+			\end{tabularx}
+		\end{center}
+		\begin{center}
+			\begin{tabularx}{\textwidth}{ | X | X | X | X | }
+				\hline
+				\TextField[name=PhilHealthNo]{PhilHealth No.:} & \TextField[name=ResCert]{Res. Cert. No.:} & \TextField[name=PlacedIssued]{Placed Issued:} & \TextField[name=DateIssued]{Date Issued:}\\
+				\hline
+			\end{tabularx}
+		\end{center}
+
+	\end{Form}
+
+	
+\end{document}
