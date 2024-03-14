@@ -7,6 +7,9 @@
 \usepackage{subcaption,lipsum, hyperref, eforms}
 \usepackage{array, tabularx, tabu}
 \usepackage{fontspec}
+\usepackage{multirow}
+\usepackage{tabularray}
+\usepackage{xcolor}
 
 % \def\LayoutCheckField#1#2{% label, field
 %   #2 #1%
@@ -34,13 +37,35 @@
 		\end{figure}
 		% end of logo
 
+		% start of appl id
+		\begin{flushleft}
+			\TextField[name=ApplID,width=0.25\textwidth,value=APPL-2011-1221-0001,readonly]{Application ID: }
+		\end{flushleft}
+		% end of appl id
+
 		% start of nickname textbox
 		\begin{flushleft}
 			\TextField[name=Nickname,width=0.25\textwidth]{Nickname: }
 		\end{flushleft}
 		% end of nickname textbox
 
-		\vspace{0.5cm}
+		% start of name
+		\begin{center}
+			\begin{tabularx}{\textwidth}[t]{|X|X|X|X|X|}
+				\hline
+				\multicolumn{5}{|c|}{\centering HR ACTION (To be filled by Abztrak Personnel)}\\
+				\hline
+				\CheckBox[name=IsHire]{Hire}&\CheckBox[name=IsEndorsed]{Endorsed}&\CheckBox[name=IsTest]{Test}&\CheckBox[name=IsActiveFile]{Active File}&\CheckBox[name=IsWB]{WB}\\
+				\hline
+				\multicolumn{5}{|@{}l@{}|}{
+					\begin{tabularx}{\textwidth}{lX}
+						Projected Salary: &\TextField[name=ProjectedSalary,width=\linewidth]{}
+					\end{tabularx}
+				}\\
+				\hline
+			\end{tabularx}
+		\end{center}
+		% end of name
 
 		% start of instruction #1
 		\noindent
