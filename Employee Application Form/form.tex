@@ -10,22 +10,9 @@
 \usepackage{multirow}
 \usepackage{tabularray}
 \usepackage{xcolor, vcell}
-\usepackage{booktabs}
-
-% \def\LayoutCheckField#1#2{% label, field
-%   #2 #1%
-% }
+\usepackage{booktabs, colortbl}
 
 \setmainfont{Arial}
-
-% \def\LayoutTextField#1#2{% label, field
-%   \def\Hy@temp{#1}%
-%   \ifx\Hy@temp\@empty
-%     #2%
-%   \else
-%     \raisebox{\dimexpr(\depth-\height)/2}{#1} \raisebox{\dimexpr(\depth-\height)/2}{#2}%
-%   \fi
-% }
 
 \begin{document}
 	\begin{Form}
@@ -39,7 +26,7 @@
 		\begin{center}
 			\def\myname{Jonathan}
 			\begin{tabularx}{\textwidth}{@{}lX}
-				Application ID & \textField[\V{\myname}\Ff{\FfReadOnly}]{ApplID}{0.25\linewidth}{15bp}\\
+				Application ID & \textField[\DV{\myname}\Ff{\FfReadOnly}]{ApplID}{0.25\linewidth}{15bp}\\
 				\addlinespace
 				Nickname & \textField{Nickname}{0.25\linewidth}{15bp}
 			\end{tabularx}
@@ -48,30 +35,25 @@
 		% HR
 		\begin{center}
 			\begin{tabularx}{\textwidth}{c}
+				\hline
 				\multicolumn{1}{|@{}X@{}|@{}}{
-					\begin{tabularx}{\textwidth}{llllX}
+					\begin{tabularx}{\textwidth}{@{}llllX@{}}
+						\addlinespace[2pt]
+						\multicolumn{5}{@{}c@{}}{\cellcolor{blue!25} TO BE MODIFIED BY ABZTRAK EMPLOYEE}\\
 						\hline
-						\CheckBox[name=IsHire]{Hire}&\CheckBox[name=IsEndorsed]{Endorsed}&\CheckBox[name=IsTest]{Test}&\CheckBox[name=IsActiveFile]{Active File}&\CheckBox[name=IsWB]{WB}\\
+						\addlinespace
+						Hire: \checkBox[\AA{\AAMouseDown{\JS{console.log("https://www.w3schools.com");}}}]{IsHire}{15bp}{15bp}{On}&Endorsed: \checkBox{IsEndorsed}{15bp}{15bp}{On}&Test: \checkBox{IsTest}{15bp}{15bp}{On}&Active File: \checkBox{IsActiveFile}{15bp}{15bp}{On}&WB: \checkBox{IsWB}{15bp}{15bp}{On}\\
 						\addlinespace
 						\multicolumn{5}{@{}c@{}}{
-							\begin{tabularx}{\linewidth}{lX@{}}
+							\begin{tabularx}{\linewidth}{lX}
 								Projected Salary: & \textField{ProjectedSalary}{\linewidth}{15bp}
 							\end{tabularx}
 						}\\
-						\hline
+						\addlinespace
 					\end{tabularx}
-				}
+				}\\
+				\hline
 			\end{tabularx}
-			% \begin{tabularx}{\textwidth}{|llllX|}\hline
-			% 	\CheckBox[name=IsHire]{Hire}&\CheckBox[name=IsEndorsed]{Endorsed}&\CheckBox[name=IsTest]{Test}&\CheckBox[name=IsActiveFile]{Active File}&\CheckBox[name=IsWB]{WB}\\
-			% 	\addlinespace
-			% 	\multicolumn{5}{|@{}c@{}|}{
-			% 		\begin{tabularx}{\linewidth}{lX@{}}
-			% 			Projected Salary: & \textField{ProjectedSalary}{\linewidth}{30bp}
-			% 		\end{tabularx}
-			% 	}\\
-			% 	\hline
-			% \end{tabularx}
 		\end{center}
 		% HR
 
@@ -86,31 +68,38 @@
 
 		% start of name
 		\begin{center}
-			\begin{tabularx}{\textwidth}{|XXX|}
+			\begin{tabularx}{\linewidth}{c}
 				\hline
-				\multicolumn{3}{|c|}{
-					NAME
-				}\\
-				\hline
-				Last Name & First Name & Middle Name\\
-				\TextField[name=Lastname,width=\linewidth,height=5bp]{} & \TextField[name=Firstname,width=\linewidth,height=5bp]{} & \TextField[name=Middlename,width=\linewidth,height=5bp]{}\\
-				\hline
+					\multicolumn{1}{|@{}X@{}|}{
+						\begin{tabularx}{\textwidth}{@{}X@{}|@{}X@{}|@{}X@{}}
+							\hline
+							\addlinespace[2pt]
+							\multicolumn{3}{c}{
+								NAME
+							}\\
+							\hline
+							Last Name & First Name & Middle Name\\
+							\textField{Lastname}{\linewidth}{15bp}&\textField{Firstname}{\linewidth}{15bp}&\textField{Middlename}{\linewidth}{15bp}\\
+							\hline
+						\end{tabularx}
+					}\\
+				\hline				
 			\end{tabularx}
 		\end{center}
 		% end of name
 
 		% other personal details start
 		\begin{center}
-			\begin{tabularx}{\textwidth}{|lXlX|}
+			\begin{tabularx}{\textwidth}{|@{}lXlX@{}|}
 				\hline
 				\multicolumn{4}{|c|}{
 					PERSONAL DETAILS
 				}\\
 				\hline
-				Phone Number: & \TextField[name=PhoneNo,width=\linewidth,height=5bp]{} & Date Available: & \TextField[name=DateAvail,width=\linewidth,height=5bp]{}\\
+				Phone Number: & \textField{PhoneNo}{\linewidth}{11bp} & Date Available: & \textField{DateAvail}{\linewidth}{11bp}\\
 				\multicolumn{4}{@{}c@{}}{
-					\begin{tabularx}{\textwidth}{|lX|}
-						Birthday: &\TextField[name=Bday,width=\linewidth,height=5bp]{}
+					\begin{tabularx}{\textwidth}{|@{}lX@{}|}
+						Birthday: &\textField{Bday}{\linewidth}{13bp}
 					\end{tabularx}
 				}\\
 				\hline
@@ -120,18 +109,18 @@
 
 		% civil status start
 		\begin{center}
-			\begin{tabularx}{\textwidth}{|lXlX|}
+			\begin{tabularx}{\textwidth}{|@{}lXlX@{}|}
 				\hline
 				\multicolumn{4}{|c|}{
 					CIVIL STATUS
 				}\\
 				\hline
-				Civil Status: & \comboBox{}{\linewidth}{11bp}{
+				Civil Status: & \comboBox{}{\linewidth}{13bp}{
 					[(1)(Single)]
 					[(2)(Married)]
 					[(2)(Separated/Annulled)]
 					[(2)(Widowed)]
-				} & If Married, how many children:& \TextField[name=ChildCount,width=\linewidth]{}\\
+				} & If Married, how many children:& \textField{ChildCount}{\linewidth}{13bp}\\
 				\multicolumn{4}{@{}X@{}}{
 					\begin{tabularx}{\textwidth}{|XXX|}
 						Name of Spouse&Occupation of Spouse&Office Address\\
