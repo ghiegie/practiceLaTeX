@@ -1,0 +1,11 @@
+return {
+ ["errortype"]=1,
+ ["filename"]="./context_test.tex",
+ ["lastcontext"]="\n<to be read again> \n    \n    \\starttext \n<line 3.4> \n    \\starttext\n\n",
+ ["lastluaerror"]="",
+ ["lasttexerror"]="Missing { inserted",
+ ["lasttexhelp"]="A left brace was mandatory here, so I've put one in.",
+ ["linenumber"]=4,
+ ["offset"]=10,
+ ["skiplinenumber"]=3,
+}

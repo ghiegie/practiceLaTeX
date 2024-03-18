@@ -11,11 +11,36 @@
 \usepackage{tabularray}
 \usepackage{xcolor, vcell}
 \usepackage{booktabs, colortbl}
+\usepackage{luacode, datetime2, context}
 
 \setmainfont{Arial}
 
 \begin{document}
 	\begin{Form}
+		\startluacode
+			-- The unknown command \undefined will cause this entire block to fail.
+
+			-- Print a countdown '10, 8, …, 0!'
+			-- `..` is Lua for string concatenation
+			for i = 10, 2, -2 do
+				context(i .. ", ")
+			end
+			context("0!")
+
+			-- \\par is equivalent to a blank line in the input
+			-- (Notice the escaped backslash: TeX won't mind the above comment.)
+			context.par()
+
+			-- Look! we can use # and $ with impunity!
+			context("Unless we print them, then we must \\#\\$\\& print the escape characters, too.")
+		\stopluacode
+
+		% \begin{center}
+		% 	A random number:
+		% 	\begin{luacode}
+		% 	tex.sprint(math.random())
+		% 	\end{luacode}
+		% \end{center}
 		% start of logo
 		\begin{center}
 			\includegraphics[width=0.45\linewidth]{company logo.png}\\
@@ -24,9 +49,9 @@
 		% end of logo
 
 		\begin{center}
-			\def\myname{Jonathan}
+			\def\myname{}
 			\begin{tabularx}{\textwidth}{@{}lX}
-				Application ID & \textField[\DV{\myname}\Ff{\FfReadOnly}]{ApplID}{0.25\linewidth}{15bp}\\
+				Application ID & \textField[\V{\today}\Ff{\FfReadOnly}]{ApplID}{0.25\linewidth}{15bp}\\
 				\addlinespace
 				Nickname & \textField{Nickname}{0.25\linewidth}{15bp}
 			\end{tabularx}
@@ -39,13 +64,13 @@
 				\multicolumn{1}{|@{}X@{}|@{}}{
 					\begin{tabularx}{\textwidth}{@{}llllX@{}}
 						\addlinespace[2pt]
-						\multicolumn{5}{@{}c@{}}{\cellcolor{blue!25} TO BE MODIFIED BY ABZTRAK EMPLOYEE}\\
+						\multicolumn{5}{@{}c@{}}{ TO BE MODIFIED BY ABZTRAK EMPLOYEE}\\
 						\hline
 						\addlinespace
-						Hire: \checkBox[\AA{\AAMouseDown{\JS{console.log("https://www.w3schools.com");}}}]{IsHire}{15bp}{15bp}{On}&Endorsed: \checkBox{IsEndorsed}{15bp}{15bp}{On}&Test: \checkBox{IsTest}{15bp}{15bp}{On}&Active File: \checkBox{IsActiveFile}{15bp}{15bp}{On}&WB: \checkBox{IsWB}{15bp}{15bp}{On}\\
+						Hire: \checkBox{IsHire}{15bp}{15bp}{On}&Endorsed: \checkBox{IsEndorsed}{15bp}{15bp}{On}&Test: \checkBox{IsTest}{15bp}{15bp}{On}&Active File: \checkBox{IsActiveFile}{15bp}{15bp}{On}&WB: \checkBox{IsWB}{15bp}{15bp}{On}\\
 						\addlinespace
 						\multicolumn{5}{@{}c@{}}{
-							\begin{tabularx}{\linewidth}{lX}
+							\begin{tabularx}{\linewidth}{@{}lX}
 								Projected Salary: & \textField{ProjectedSalary}{\linewidth}{15bp}
 							\end{tabularx}
 						}\\

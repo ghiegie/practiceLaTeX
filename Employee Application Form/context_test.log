@@ -1,0 +1,33 @@
+system          > 
+system          > ConTeXt  ver: 2023.05.05 18:36 LMTX  fmt: 2024.3.5  int: english/english
+system          > 
+system          > 'cont-new.mkxl' loaded
+open source     > level 1, order 1, name 'C:/texlive/2023/texmf-dist/tex/context/base/mkxl/cont-new.mkxl'
+system          > beware: some patches loaded from cont-new.mkiv
+close source    > level 1, order 1, name 'C:/texlive/2023/texmf-dist/tex/context/base/mkxl/cont-new.mkxl'
+system          > 'cont-sys.mkxl' loaded
+open source     > level 1, order 2, name 'C:/texlive/2023/texmf-dist/tex/context/texlive/cont-sys.mkxl'
+close source    > level 1, order 2, name 'C:/texlive/2023/texmf-dist/tex/context/texlive/cont-sys.mkxl'
+system          > files > jobname './context_test', input './context_test.tex', result './context_test'
+fonts           > latin modern fonts are not preloaded
+languages       > language 'en' is active
+open source     > level 1, order 3, name './context_test.tex'
+fonts           > preloading latin modern fonts (second stage)
+mathematics     > tweak > 'LatinModernMath-Regular', size 6, math size 3, version 'Version 1.959' found, version 'Version 1.958' expected
+fonts           > 'fallback modern rm 12pt' is loaded
+tex error       > tex error on line 4 in file ./context_test.tex: Missing { inserted
+
+<to be read again> 
+    
+    \starttext 
+<line 3.4> 
+    \starttext
+
+1     \starttext
+2     \placefigure
+3     {\externalfigure[company logo.png]}\\
+4 >>  \starttext
+5     test sample
+6     \starttext
+7     \stoptext
+A left brace was mandatory here, so I've put one in.
